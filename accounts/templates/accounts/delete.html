@@ -1,0 +1,21 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+    <br>
+
+    <div class="row align-content-center">
+    <div class="col-md-6">
+        <div class="card card-body">
+
+    <p>Do you really want to delete this {{ items }}</p>
+
+    <form action="{% url 'delete_order' items.id %}" method="post">{% csrf_token %}
+       <a class="btn btn-warning" href="{% url 'home' %}">Cancel</a>
+        <input class="btn btn-danger" type="submit" name="confirm">
+
+    </form>
+
+        </div>
+    </div>
+    </div>
+{% endblock %}
